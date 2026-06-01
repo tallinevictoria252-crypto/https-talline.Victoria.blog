@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de Ingressos</title>
+</head>
+<body>
+  <h1>Controle de Ingressos do Evento</h1>
+
+  <label>Alunos:</label>
+  <input type="number" id="alunos"><br><br>
+
+  <label>Monitores:</label>
+  <input type="number" id="monitores"><br><br>
+
+  <label>Convidados:</label>
+  <input type="number" id="convidados"><br><br>
+
+  <button onclick="verificar()">Verificar</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function verificar() {
+      let alunos = Number(document.getElementById("alunos").value);
+      let monitores = Number(document.getElementById("monitores").value);
+      let convidados = Number(document.getElementById("convidados").value);
+
+      let total = alunos + monitores + convidados;
+
+      if (total <= 100 && convidados <= 20) {
+        document.getElementById("resultado").innerHTML =
+          "Evento permitido!";
+      } else {
+        document.getElementById("resultado").innerHTML =
+          "Limites excedidos!";
+      }
+    }
+  </script>
+</body>
+</html>
